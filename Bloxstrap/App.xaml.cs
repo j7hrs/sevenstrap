@@ -221,7 +221,7 @@ namespace Bloxstrap
             const string LOG_IDENT = "App::AssertWindowsOSVersion";
 
             int major = Environment.OSVersion.Version.Major;
-            if (major < 10) // Windows 10 and newer only
+            /*if (major < 10) // Windows 10 and newer only
             {
                 Logger.WriteLine(LOG_IDENT, $"Detected unsupported Windows version ({Environment.OSVersion.Version}).");
 
@@ -229,7 +229,7 @@ namespace Bloxstrap
                     Frontend.ShowMessageBox(Strings.App_OSDeprecation_Win7_81, MessageBoxImage.Error);
 
                 Terminate(ErrorCode.ERROR_INVALID_FUNCTION);
-            }
+            }*/ // i feel so sigma for doing this...
         }
 
         protected override void OnStartup(StartupEventArgs e)
@@ -345,7 +345,7 @@ namespace Bloxstrap
             {
                 Logger.Initialize(true);
                 Logger.WriteLine(LOG_IDENT, "Not installed, launching the installer");
-                AssertWindowsOSVersion(); // prevent new installs from unsupported operating systems
+                //AssertWindowsOSVersion(); // prevent new installs from unsupported operating systems
                 LaunchHandler.LaunchInstaller();
             }
             else
